@@ -13,8 +13,8 @@ int main() {
 	const double IPI = 0.08;
 	const double DESCONTO = 0.035;
 
-	int carro, escolhaOpcional, continuarOpcional, repetir;
-	int contador0 = 0, contador1 = 0, contador2 = 0, contador3 = 0, contador4 =	0;
+	int carro, escolhaOpcional, continuarOpcional = 1, repetir;
+	int contador0 = 0, contador1 = 0, contador2 = 0, contador3 = 0, contador4 = 0;
 	int conta_carro1 = 0, conta_carro2 = 0, conta_carro3 = 0, conta_carro4 = 0, conta_carro5 = 0;
 	bool opcional1 = false, opcional2 = false, opcional3 = false;
 	bool opcional0 = false, opcional4 = false;
@@ -41,6 +41,7 @@ int main() {
 			}
 		} while (carro <= 0 || carro >= 6);
 
+//Declara o valor monetário do carro escolhido.
 		switch (carro) {
 		case 1:
 			valorCarro = 4069000;
@@ -63,22 +64,22 @@ int main() {
 			conta_carro5 += 1;
 			break;
 		}
-
+//Declara valores dos opcionais e carro com IPI baseado no valor do carro escolhido.
 		valorCarroIPI = (valorCarro * IPI) + valorCarro;
-		float opc1 = (valorCarro * 0.02);
-		float opc2 = (valorCarroIPI * 0.02);
-		float opc3 = (valorCarroIPI * 0.02);
-		float opcCompleto = (opc1 + opc2 + opc3);
+		double opc1 = (valorCarro * 0.02);
+		double opc2 = (valorCarroIPI * 0.02);
+		double opc3 = (valorCarroIPI * 0.02);
+		double opcCompleto = (opc1 + opc2 + opc3);
 
-			cout << "\n-------------- Escolha os opcionais! -------------\n";
-			cout << "          (COMPLETO -> Promoção de 3,5%)\n";
-			cout << "--------------------------------------------------\n";
-			cout << "0) Nenhum opcional (Super básico)\n";
-			cout << "1) Trio elétrico (Alarme, vidro e tranca elétrica)\n";
-			cout << "2) Ar condicionado\n";
-			cout << "3) Direção hidráulica\n";
-			cout << "4) Completo (Trio elétrico, ar e direção)\n";
-			cout << "--------------------------------------------------\n";
+		cout << "\n-------------- Escolha os opcionais! -------------\n";
+		cout << "          (COMPLETO -> Promoção de 3,5%)\n";
+		cout << "--------------------------------------------------\n";
+		cout << "0) Nenhum opcional (Super básico)\n";
+		cout << "1) Trio elétrico (Alarme, vidro e tranca elétrica)\n";
+		cout << "2) Ar condicionado\n";
+		cout << "3) Direção hidráulica\n";
+		cout << "4) Completo (Trio elétrico, ar e direção)\n";
+		cout << "--------------------------------------------------\n";
 
 		do {
 
@@ -86,10 +87,10 @@ int main() {
 				cout << "\nEscolha um opcional: ";
 				cin >> escolhaOpcional;
 				if (escolhaOpcional < 0 && escolhaOpcional > 4)
-					{
-						cin.clear();
-						cin.ignore();
-					}
+				{
+					cin.clear();
+					cin.ignore();
+				}
 			} while (escolhaOpcional < 0 || escolhaOpcional > 4);
 
 			switch (escolhaOpcional) {
@@ -102,16 +103,17 @@ int main() {
 				cout << "\nVocê escolheu: TRIO ELÉTRICO.\n";
 				if (opcional1) {
 					cout << "Essa opção já foi selecionada anteriormente, escolha outra!\n";
-				} else {
+				} 
+				else {
 					opcional1 = true;
 					do {
 						cout << "Escolher outro opcional? (1) SIM / (2) NÃO: ";
 						cin >> continuarOpcional;
 						if (continuarOpcional != 1 && 2)
-							{
-								cin.clear();
-								cin.ignore();
-							}
+						{
+							cin.clear();
+							cin.ignore();
+						}
 					} while (continuarOpcional < 1 || continuarOpcional > 2);
 				}
 				break;
@@ -119,16 +121,17 @@ int main() {
 				cout << "\nVocê escolheu: AR CONDICIONADO.\n";
 				if (opcional2) {
 					cout << "Essa opção já foi selecionada anteriormente, escolha outra!\n";
-				} else {
+				} 
+				else {
 					opcional2 = true;
 					do {
 						cout << "Escolher outro opcional? (1) SIM / (2) NÃO: ";
 						cin >> continuarOpcional;
 						if (continuarOpcional != 1 && 2)
-							{
-								cin.clear();
-								cin.ignore();
-							}
+						{
+							cin.clear();
+							cin.ignore();
+						}
 					} while (continuarOpcional < 1 || continuarOpcional > 2);
 				}
 				break;
@@ -136,16 +139,17 @@ int main() {
 				cout << "\nVocê escolheu: DIREÇÃO HIDRÁULICA.\n";
 				if (opcional3) {
 					cout << "Essa opção já foi selecionada anteriormente, escolha outra!\n";
-				} else {
+				} 
+				else {
 					opcional3 = true;
 					do {
 						cout << "Escolher outro opcional? (1) SIM / (2) NÃO: ";
 						cin >> continuarOpcional;
 						if (continuarOpcional != 1 && 2)
-							{
-								cin.clear();
-								cin.ignore();
-							}
+						{
+							cin.clear();
+							cin.ignore();
+						}
 					} while (continuarOpcional < 1 || continuarOpcional > 2);
 				}
 				break;
@@ -154,10 +158,12 @@ int main() {
 				opcional4 = true;
 				break;
 			}
-
+//Repetição é finalizada nos casos: Usuário decida não escolher outro opcional; escolha os opcionais 0 ou 4;
+//escolha três opcionais aleatórios e não repetidos entre as opções 1, 2 e 3.
 		} while (continuarOpcional != 2 && (escolhaOpcional != 0 && escolhaOpcional != 4
-				&& (!opcional1 || !opcional2 || !opcional3)));
+			&& (!opcional1 || !opcional2 || !opcional3)));
 
+//Declara valor final do automóvel baseado nas opções escolhidas, e incrementa os contadores.
 		if (opcional0 == true)
 		{
 			opcional1 = false; opcional2 = false; opcional3 = false;
@@ -226,25 +232,27 @@ int main() {
 			break;
 		}
 
+//Saída do valor total após o processamento das escolhas durante a simulação.
 		if (opcional1 || opcional2 || opcional3 || opcional0 || opcional4)
 		{
-		cout << "\nValor do automóvel a preço de fábrica: ";
+			cout << "\nValor do automóvel a preço de fábrica: ";
 
-		std::stringstream ss;
-		ss.imbue(std::locale(""));
-		ss << std::showbase << std::put_money(valorCarroTotal);
-		std::cout << ss.str() << '\n';
+			std::stringstream ss;
+			ss.imbue(std::locale(""));
+			ss << std::showbase << std::put_money(valorCarroTotal);
+			std::cout << ss.str() << '\n';
 		}
 
-			do {
-				cout << "\nREPETIR SIMULAÇÃO? (1) SIM / (2) NÃO: ";
-				cin >> repetir;
-				if (repetir != 1 && 2)
-					{
-						cin.clear();
-						cin.ignore();
-					}
-			} while (repetir < 1 || repetir > 2);
+//Se o usuário escolher repetir a simulação o programa retorna ao início preservando somente os contadores.
+		do {
+			cout << "\nREPETIR SIMULAÇÃO? (1) SIM / (2) NÃO: ";
+			cin >> repetir;
+			if (repetir != 1 && 2)
+			{
+				cin.clear();
+				cin.ignore();
+			}
+		} while (repetir < 1 || repetir > 2);
 
 		opcional1 = false;
 		opcional2 = false;
@@ -256,6 +264,7 @@ int main() {
 
 	} while (repetir == 1);
 
+//Se o usuário escolher NÃO repetir a simulação, o programa apresenta os contadores na tela.
 	cout << "\n-[Contador de automóveis]-";
 	cout << "\nGol: " << conta_carro1;
 	cout << "\nPolo: " << conta_carro2;
@@ -272,6 +281,3 @@ int main() {
 
 	return 0;
 }
-
-
-
