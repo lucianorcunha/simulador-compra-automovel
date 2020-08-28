@@ -3,7 +3,7 @@
 
 **Introdução**
 
-Esta é uma atividade estruturada, da disciplina “Algoritmos”, presente no 2º período do meu curso de graduação em Sistemas de Informação. O objetivo da atividade é desenvolver um programa simulador de valor final para automóveis a preço de fábrica, no qual o usuário deve escolher um modelo de carro e opcionais de preferência. Vale lembrar que a linguagem utilizada na disciplina foi C++ apenas com estruturas de decisão e repetição, e que a atividade se destina a pratica de tais conhecimentos. 
+Esta é uma atividade estruturada presente no meu curso de graduação em Sistemas de Informação. O objetivo da atividade é desenvolver um programa simulador de valor final para automóveis a preço de fábrica, no qual o usuário deve escolher um modelo de carro e opcionais de preferência. Vale lembrar que a linguagem utilizada na disciplina foi C++ utilizando estruturas sequenciais, de decisão e repetição, e que a atividade se destina a prática de tais conhecimentos. 
 
 **Visão Geral**
 
